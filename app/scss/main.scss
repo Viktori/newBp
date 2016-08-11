@@ -1,0 +1,20 @@
+// Third party
+@import 'vendor/normalize'; // Normalize.css
+
+// Utils
+@import 'utils/variables';
+@import 'utils/mixins';
+
+// Partials
+@import 'partials/base';
+@import 'partials/form';
+@import 'partials/typography';
+
+// Components
+@import 'components/video';
+@import 'components/promobox';
+
+// Views
+@import 'views/home';
+@import 'views/long-article';
+@import 'views/short-article';

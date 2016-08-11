@@ -1,0 +1,33 @@
+// Rem converter mixin
+//
+// Convert values to rem values.
+// This mixin uses default font-size variable $base-font-size.
+// Do not use in font shorthand, IE9-10 will ignore that rule.
+// Pseudo classes in IE9-10 will also ignore the rem unless a specified value in px is rendered.
+//
+// @property - CSS property for which to convert into rem values
+// @values - Value list of that rem property
+// @pseudo - Boolean value for pseudo classes
+
+$base-font-size: 13;
+
+@mixin rem($property, $values, $pseudo: false) {
+  $px-values: ();
+  $rem-values: ();
+
+  @each $value in $values {
+    @if $value == 0 or type-of($value) != 'number' {
+      $px-values: append($px-values, $value);
+      $rem-values: append($rem-values, $value);
+    } @else {
+      $px-values: append($px-values, $value);
+      $rem-values: append($rem-values, $value / $base-font-size * 1rem);
+    }
+  }
+
+  @if $pseudo == true {
+    #{$property}: $px-values + px;
+  }
+
+  #{$property}: $rem-values;
+}
