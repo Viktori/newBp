@@ -5,16 +5,16 @@
 @import 'utils/variables';
 @import 'utils/mixins';
 
-// Partials
-@import 'partials/base';
-@import 'partials/form';
-@import 'partials/typography';
+// Base
+@import 'base/base';
+@import 'base/typography';
 
 // Components
+@import 'components/form';
 @import 'components/video';
 @import 'components/promobox';
 
-// Views
-@import 'views/home';
-@import 'views/long-article';
-@import 'views/short-article';
+// Pages
+@import 'pages/home';
+@import 'pages/long-article';
+@import 'pages/short-article';
