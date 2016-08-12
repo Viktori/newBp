@@ -14,7 +14,10 @@ app.config(($routeProvider) => {
 	.when('/', {
         templateUrl : './home.html'
     })
-    .when('/article', {
-        templateUrl : './article.html'
+    .when('/short-article', {
+        templateUrl : './short-article.html'
+    })
+    .when('/long-article', {
+        templateUrl : './long-article.html'
     });
 });
