@@ -9,11 +9,13 @@ var gulp = require('gulp'),
 	imagemin = require('gulp-imagemin'),
 	sourcemaps = require('gulp-sourcemaps'),
 	browserSync = require('browser-sync'),
+	browserify = require('browserify'),
+	source = require('vinyl-source-stream'),
 	reload = browserSync.reload;
 
 
-gulp.task('html', function () {
-	gulp.src('app/index.html')
+gulp.task('html', () => {
+	gulp.src('app/html/*.*')
 		.pipe(gulp.dest('build/'))
 		.pipe(reload({stream: true}));
 });
@@ -46,6 +48,14 @@ gulp.task('font', () => {
 	gulp.src('src/fonts/**/*.*').pipe(gulp.dest('build/fonts/'));
 });
 
+gulp.task('browserify', () => {
+	browserify('app/js/main.js')
+		.bundle()
+	    .pipe(source('main.js'))
+		.pipe(gulp.dest('build/js/'))
+		.pipe(reload({stream: true}));
+});
+
 gulp.task('webserver', () => {
 	browserSync({
 		server: {
@@ -61,12 +71,13 @@ gulp.task('clean', del.bind(null, ['build']));
 
 gulp.task('watch', () => {
 	gulp.watch(['app/html/**/*.*', 'app/index.html'], ['html']);
+	gulp.watch('app/js/*.js', ['browserify'])
 	gulp.watch('app/scss/**/*.scss', ['style']);
 	gulp.watch('app/images/**/*.*', ['image']);
 	gulp.watch('app/fonts/**/*.*', ['font']);
 });
 
-gulp.task('build', ['html', 'style', 'font', 'image' ]);
+gulp.task('build', ['html', 'browserify', 'style', 'font', 'image' ]);
 
 gulp.task('default', ['clean'], () => {
   gulp.start(['clean', 'build', 'webserver', 'watch']);
