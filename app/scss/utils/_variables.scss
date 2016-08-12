@@ -2,15 +2,17 @@
 $c-black: #000;
 $c-red: #f00;
 $c-green: #0f0;
+$c-blue: #007db3;
+$c-gray: #9b9b9b;
+$c-light-gray: #eeeeee;
 
-$base-text-color: $c-black;
+$text-color: $c-black;
 
+/* Sizes */
 
 /* Fonts */
 $font-size-xxl: 32px;
 $font-size-xl: 28px;
 $font-size-l: 24px;
 
-$base-font-size: 14px;
-
-/* Sizes */
+$font-size: 14px;

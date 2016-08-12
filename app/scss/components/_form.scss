@@ -1,0 +1,21 @@
+.button {
+	padding: 35px 0;
+	height: 70px;
+    text-transform: uppercase;
+    color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+    box-shadow: none;
+    &.button-white {
+    	color: white;
+    	border-color: white;
+    }
+}
+
+a {
+	color: $text-color;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
