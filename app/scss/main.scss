@@ -6,10 +6,13 @@
 @import 'utils/mixins';
 
 // Base
+@import 'base/fonts';
+@import 'base/icons';
 @import 'base/base';
 @import 'base/typography';
 
 // Components
+@import 'components/header';
 @import 'components/form';
 @import 'components/video';
 @import 'components/promobox';

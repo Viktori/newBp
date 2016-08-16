@@ -1,0 +1,63 @@
+.header {
+	position: fixed;
+	top: 0;
+	height: 50px;
+	width: 100%;
+	.header-container {
+		@include rem(max-width, 1280);
+		@include rem(padding-left, 20);
+		@include rem(padding-right, 20);
+		margin: 0 auto;
+		overflow: hidden;
+		box-sizing: border-box;
+		background: white; 
+	}
+	.title, .loaction, [class*='icon-'] {
+		display: inline-block;
+	}
+	.icons-block {
+		float: right;
+		@include rem(height, 40);
+		.menu {
+			display: none;
+			height: 16px;
+			width: 25px;
+			margin-top: 15px;
+			background: linear-gradient(white 70%, transparent 30%);
+  			background-size: 7px;
+  			background-color: black;
+		}
+		@media #{$mobile} {
+	    	div {
+	    		display: none;
+	    	}
+	    	.menu {
+	    		display: block;
+	    	}
+	  	}
+	}
+
+	.header-title-block {
+		float: left;
+		height: 50px;
+		line-height: 50px;
+		&:after {
+			@include arrow-down(6px, $c-blue);
+			@include rem(margin-left, 5);
+			vertical-align: middle;
+		}
+
+		span {
+			font-family: $font-garamond;
+			font-size: 26px;
+			&.location {
+				color: $c-blue;
+			}
+			@media #{$mobile} {
+		    	&.title {
+		    		display: none;
+		    	}
+		  	}
+		}
+	}
+}

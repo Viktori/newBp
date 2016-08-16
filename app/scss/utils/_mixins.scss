@@ -9,7 +9,7 @@
 // @values - Value list of that rem property
 // @pseudo - Boolean value for pseudo classes
 
-$base-font-size: 13;
+$base-font-size: 16;
 
 @mixin rem($property, $values, $pseudo: false) {
   $px-values: ();
@@ -30,4 +30,41 @@ $base-font-size: 13;
   }
 
   #{$property}: $rem-values;
+}
+
+// Font mixin
+@mixin font($font-family, $font-size, $font-fallback: $font-sans-serif) {
+    font-family: $font-family, $font-fallback;
+    @include rem(font-size, $font-size);
+}
+
+// Font-face mixin
+@mixin font-face($font-family, $file-type: otf, $font-weight: normal, $font-style: normal ) {
+  @font-face {
+    font-family: $font-family;
+    src: url('../fonts/#{$font-family}.#{$file-type}') format('#{$file-type}');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+/* Arrows mixins */
+@mixin arrow-top($size, $color) {
+  content: '';
+  display: inline-block;
+  width: 0; 
+  height: 0; 
+  border-left: $size solid transparent;
+  border-right: $size solid transparent; 
+  border-bottom: $size solid $color; 
+}
+
+@mixin arrow-down($size, $color) {
+  content: '';
+  display: inline-block;
+  width: 0; 
+  height: 0; 
+  border-left: $size solid transparent;
+  border-right: $size solid transparent; 
+  border-top: $size solid $color; 
 }

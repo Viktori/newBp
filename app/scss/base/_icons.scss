@@ -1,0 +1,16 @@
+[class*="icon-"] {
+  cursor: pointer;
+  @include rem(width, 40);
+  @include rem(height, 40);
+  background-image: url('../images/icons/icons.svg');
+  background-position: 0 5px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.icon-share { 
+  background-position: 0 -35px;
+}
+.icon-search { 
+  background-position: 0 -75px;
+}

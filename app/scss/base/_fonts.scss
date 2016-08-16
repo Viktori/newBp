@@ -1,0 +1,9 @@
+$fonts: $font-univers, $font-univers-light, $font-univers-bold, $font-garamond, $font-icons;
+
+@each $font in $fonts {
+	@if $font == $font-icons {
+		@include font-face($font, woff);
+	} @else {
+		@include font-face($font);
+	}
+}
